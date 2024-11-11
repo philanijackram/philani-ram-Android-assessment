@@ -26,7 +26,7 @@ class EngineersFragment : Fragment() {
         }
         binding.list.adapter = adapter
         setHasOptionsMenu(true)
-        setUpEngineersList(engineers)
+        setUpEngineersList()
         return binding.root
     }
 
@@ -50,10 +50,10 @@ class EngineersFragment : Fragment() {
             }
         }
         adapter.updateEngineers(engineers)
-        return true
+        return super.onOptionsItemSelected(item)
     }
 
-    private fun setUpEngineersList(engineers: List<Engineer>) {
+    private fun setUpEngineersList() {
         binding.list.adapter = adapter
         val dividerItemDecoration =
             DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)

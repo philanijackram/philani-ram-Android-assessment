@@ -4,6 +4,7 @@ import android.net.Uri
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.glucode.about_you.R
 
 class DataBindingAdapterUtil {
 
@@ -11,7 +12,16 @@ class DataBindingAdapterUtil {
         @JvmStatic
         @BindingAdapter("imageUrl")
         fun loadImage(view: ImageView, profileImage: Uri?) {
-            Glide.with(view.context).load(profileImage).into(view)
+            if(profileImage.toString().isNotEmpty()){
+                Glide.with(view.context).load(profileImage).into(view)
+            }else{
+                view.setImageResource(R.drawable.ic_person_black)
+            }
+        }
+
+        @BindingAdapter("android:src")
+        fun setImageViewResource(imageView: ImageView, resource: Int) {
+            imageView.setImageResource(resource);
         }
     }
 }

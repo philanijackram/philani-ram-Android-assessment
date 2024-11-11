@@ -23,7 +23,6 @@
             android:layout_height="150dp"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_person_black"
             android:background="@drawable/rounded_corners_white_bg"
             app:imageUrl="@{viewModel.profilePicture}"
             android:onClick="@{viewModel::onClickImage}" />

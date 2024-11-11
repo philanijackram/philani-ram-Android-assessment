@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.glucode.about_you.R
 import com.glucode.about_you.databinding.ItemEngineerBinding
 import com.glucode.about_you.engineers.models.Engineer
 import com.glucode.about_you.util.DataBindingAdapterUtil
@@ -38,8 +39,10 @@ class EngineersRecyclerViewAdapter(
                 onClick(engineer)
             }
 
-            if (!engineer.defaultImageName.isEmpty()){
+            if (engineer.defaultImageName.isNotEmpty()){
                 DataBindingAdapterUtil.loadImage(binding.profileImage,Uri.parse(engineer.defaultImageName))
+            }else{
+                DataBindingAdapterUtil.setImageViewResource(binding.profileImage, R.drawable.ic_person_black)
             }
         }
     }
