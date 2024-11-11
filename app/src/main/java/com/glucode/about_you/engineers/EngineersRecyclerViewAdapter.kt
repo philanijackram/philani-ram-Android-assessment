@@ -1,15 +1,23 @@
 package com.glucode.about_you.engineers
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.glucode.about_you.databinding.ItemEngineerBinding
 import com.glucode.about_you.engineers.models.Engineer
+import com.glucode.about_you.util.DataBindingAdapterUtil
 
 class EngineersRecyclerViewAdapter(
     private var engineers: List<Engineer>,
     private val onClick: (Engineer) -> Unit
 ) : RecyclerView.Adapter<EngineersRecyclerViewAdapter.EngineerViewHolder>() {
+
+    fun updateEngineers(engineers: List<Engineer>) {
+        this.engineers = engineers
+        notifyDataSetChanged()
+    }
 
     override fun getItemCount() = engineers.count()
 
@@ -29,8 +37,10 @@ class EngineersRecyclerViewAdapter(
             binding.root.setOnClickListener {
                 onClick(engineer)
             }
-            //TODO - set profile picture
-//            statusIcon.setDrawable(item.icon)
+
+            if (!engineer.defaultImageName.isEmpty()){
+                DataBindingAdapterUtil.loadImage(binding.profileImage,Uri.parse(engineer.defaultImageName))
+            }
         }
     }
 }
