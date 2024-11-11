@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.glucode.about_you.about.viewmodel.ProfileViewViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:background="@drawable/rounded_corners_black_bg"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_person_black"
+            android:background="@drawable/rounded_corners_white_bg"
+            app:imageUrl="@{viewModel.profilePicture}"
+            android:onClick="@{viewModel::onClickImage}" />
+
+        <TextView
+            android:id="@+id/developer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/profile_image"
+            android:text="@{viewModel.name}"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:text="Reenen du Plessis" />
+
+        <TextView
+            android:id="@+id/developer_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/developer_name"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="9dp"
+            android:layout_toEndOf="@id/profile_image"
+            android:text="@{viewModel.role}"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:text="Eng Manager" />
+
+        <RelativeLayout
+
+            android:id="@+id/developer_skills"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/developer_position"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="21dp"
+            android:layout_toEndOf="@id/profile_image"
+            android:background="@drawable/rounded_corners_white_bg"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/years_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/years_label" />
+
+            <TextView
+                android:id="@+id/years_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/years_label"
+                android:layout_marginTop="7dp"
+                android:text="@{viewModel.years}"
+                tools:text="6" />
+
+            <TextView
+                android:id="@+id/coffes_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_toEndOf="@id/years_label"
+                android:text="@string/coffees_label" />
+
+            <TextView
+                android:id="@+id/coffees_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/coffes_label"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="6dp"
+                android:layout_toEndOf="@id/years_value"
+                android:text="@{viewModel.coffees}"
+                tools:text="800" />
+
+            <TextView
+                android:id="@+id/bugs_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/coffes_label"
+                android:text="@string/bugs_label" />
+
+            <TextView
+                android:id="@+id/bugs_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bugs_label"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/coffees_value"
+                android:text="@{viewModel.bugs}"
+                tools:text="1000" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>
+
+

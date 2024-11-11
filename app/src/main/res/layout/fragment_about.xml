@@ -1,19 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="viewModel"
+            type="com.glucode.about_you.about.viewmodel.ProfileViewViewModel" />
+    </data>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/container"
-        app:dividerPadding="0dp"
-        app:showDividers="beginning|middle|end"
-        app:divider="@drawable/ic_filter"
+    <androidx.core.widget.NestedScrollView
+
         android:layout_width="match_parent"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="@dimen/padding_normal"
-        android:orientation="vertical" />
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include layout="@layout/profile_view"
+                app:viewModel="@{viewModel}"
+                />
 
-</androidx.core.widget.NestedScrollView>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/container"
+                app:dividerPadding="0dp"
+                app:showDividers="beginning|middle|end"
+                app:divider="@drawable/ic_filter"
+                android:layout_width="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/padding_normal"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

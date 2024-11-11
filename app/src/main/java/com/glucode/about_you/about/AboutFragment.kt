@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.glucode.about_you.about.viewmodel.ProfileViewViewModel
 import com.glucode.about_you.about.views.QuestionCardView
 import com.glucode.about_you.databinding.FragmentAboutBinding
 import com.glucode.about_you.mockdata.MockData
 
-class AboutFragment: Fragment() {
+class AboutFragment : Fragment() {
     private lateinit var binding: FragmentAboutBinding
 
     override fun onCreateView(
@@ -18,6 +19,7 @@ class AboutFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentAboutBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -30,6 +32,8 @@ class AboutFragment: Fragment() {
     private fun setUpQuestions() {
         val engineerName = arguments?.getString("name")
         val engineer = MockData.engineers.first { it.name == engineerName }
+
+        binding.viewModel = ProfileViewViewModel(engineer, this)
 
         engineer.questions.forEach { question ->
             val questionView = QuestionCardView(requireContext())
