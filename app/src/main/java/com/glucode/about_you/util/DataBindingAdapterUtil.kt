@@ -18,10 +18,5 @@ class DataBindingAdapterUtil {
                 view.setImageResource(R.drawable.ic_person_black)
             }
         }
-
-        @BindingAdapter("android:src")
-        fun setImageViewResource(imageView: ImageView, resource: Int) {
-            imageView.setImageResource(resource);
-        }
     }
 }

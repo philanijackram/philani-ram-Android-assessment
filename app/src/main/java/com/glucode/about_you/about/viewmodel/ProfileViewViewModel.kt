@@ -2,7 +2,6 @@ package com.glucode.about_you.about.viewmodel
 
 import android.net.Uri
 import android.view.View
-import android.widget.ImageView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -10,7 +9,6 @@ import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.fragment.app.Fragment
 import com.glucode.about_you.engineers.models.Engineer
-import com.glucode.about_you.util.DataBindingAdapterUtil
 
 class ProfileViewViewModel(var engineer: Engineer, var fragment: Fragment) : BaseObservable() {
     var photoPickerLauncher: ActivityResultLauncher<PickVisualMediaRequest>
